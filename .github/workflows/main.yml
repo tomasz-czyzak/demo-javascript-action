@@ -9,10 +9,11 @@ jobs:
     outputs:
       all: ${{ steps.changes.outputs.all }}
     steps:
-      - name: Get changed files
+      - name: Checkout repository
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+      - name: Get changed files
         id: changes
         run: |
           echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
