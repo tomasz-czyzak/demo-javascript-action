@@ -14,6 +14,7 @@ jobs:
       - name: Branch
         run: |
           echo "$(git branch)"
+          echo "$(git log -2 --oneline)"
       - name: Get changed files
         id: changes
         run: |
