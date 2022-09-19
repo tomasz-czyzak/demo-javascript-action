@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-          with:
-            ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: Get changed file
         id: changes
         run: echo "ABC"
@@ -18,7 +18,7 @@ jobs:
   verifyPR:
     runs-on: ubuntu-latest
     steps:
-     - name: Verify
-       uses: tomasz-czyzak/demo-javascript-action/verify@develop
-         with:
-           who-to-greet: 'John Doe 11 Verify'
+    - name: Verify
+    - uses: tomasz-czyzak/demo-javascript-action/verify@develop
+      with:
+        who-to-greet: 'John Doe 11 Verify'
