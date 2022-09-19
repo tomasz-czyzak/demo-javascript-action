@@ -1,5 +1,6 @@
-name: PR Validation
+name: PR Verfification
 on:
+  push:
   pull_request:
     types: [opened, edited, ready_for_review, reopened]
 
@@ -8,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     name: PR Validation
     steps:
-      - name: pr_validation_step
+      - name: Verify
         uses: tomasz-czyzak/demo-javascript-action/verify@develop
         with:
           who-to-greet: 'John Doe 11 Verify'
