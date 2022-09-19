@@ -19,4 +19,4 @@ jobs:
           
       - uses: tomasz-czyzak/demo-javascript-action/verify@develop
         with:
-          modifed_files: ${{ steps.changes.outputs.modified_files }}"
+          modified_files: ${{ steps.changes.outputs.modified_files }}
