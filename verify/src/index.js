@@ -16,8 +16,8 @@ try {
   const prTitle = JSON.stringify(github.context.payload.pull_request.title, undefined, 2)
   const prBody = JSON.stringify(github.context.payload.pull_request.body, undefined, 2)
     
-  const base = context.payload.pull_request?.base?.sha
-  const head = context.payload.pull_request?.head?.sha
+  const base = github.context.payload.pull_request?.base?.sha
+  const head = github.context.payload.pull_request?.head?.sha
      
   console.log(`PR SHA BASE:${base}`);
   console.log(`PR SHA HEAD:${head}`);
