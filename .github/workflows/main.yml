@@ -9,8 +9,6 @@ jobs:
     outputs:
       all: ${{ steps.changes.outputs.all }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
       - name: Branch
         run: |
           echo "$(git branch)"
