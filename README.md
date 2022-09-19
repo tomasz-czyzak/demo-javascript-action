@@ -16,7 +16,7 @@ The time we greeted you.
 
 ## Example usage
 
-uses: actions/tomasz-czyzak/demo-javascript-action@v1.0.0
+uses: actions/tomasz-czyzak/demo-javascript-action/verify@master
 with:
   who-to-greet: 'Mona the Octocat'
 
