@@ -8,6 +8,11 @@ try {
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
 
+  const prTitle = JSON.stringify(github.context.payload.title, undefined, 2)
+  const prBody = JSON.stringify(github.context.payload.body, undefined, 2)
+  console.log(`***********************`);
+  console.log(`PR TITLE:${prTitle}`);
+  console.log(`PR BODY:${prBody}`);
   console.log("***********************");
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
