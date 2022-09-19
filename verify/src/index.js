@@ -7,14 +7,21 @@ try {
   const prBody = JSON.stringify(github.context.payload.pull_request.body, undefined, 2)
   const base = github.context.payload.pull_request?.base?.sha
   const head = github.context.payload.pull_request?.head?.sha
+  const addedLines = github.context.payload.pull_request?.addedLines
+  const deletedLines = github.context.payload.pull_request?.deletedLines
+  const modifiedFiles1 = github.context.payload.pull_request?.modifiedFiles
   const modifiedFiles = core.getInput('modifed_files');
-
+    
   console.log(`PR SHA BASE:${base}`);
   console.log(`PR SHA HEAD:${head}`);
 
   console.log(`PR TITLE:${prTitle}`);
   console.log(`PR BODY:${prBody}`);
-  console.log(`modifiedFiles: ${modifiedFiles}!`);
+  console.log(`modifiedFiles: ${modifiedFiles}`);
+  console.log(`modifiedFiles1: ${modifiedFiles1}`);
+  console.log(`addedLines: ${addedLines}`);
+  console.log(`deletedLines: ${deletedLines}`);
+    
   console.log(`***********************`);
     
   // Get the JSON webhook payload for the event that triggered the workflow
