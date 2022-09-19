@@ -6,19 +6,11 @@ on:
 jobs:
   Verification:
     runs-on: ubuntu-latest
-    outputs:
-      all: ${{ steps.changes.outputs.all }}
     steps:
       - name: Branch
         run: |
           echo "$(git branch)"
           echo "$(git log -2 --oneline)"
-      - name: Get changed files
-        id: changes
-        run: |
-          echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
-      - name: Changed files
-        run: echo "The time was ${{ steps.changes.outputs.all }}"
       - name: Verify
         uses: tomasz-czyzak/demo-javascript-action/verify@develop
         with:
