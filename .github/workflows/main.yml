@@ -4,18 +4,21 @@ on:
     types: [opened, edited, ready_for_review, reopened, synchronize]
 
 jobs:
-  pr_validation_job:
+  Verification:
     runs-on: ubuntu-latest
     outputs:
       all: ${{ steps.changes.outputs.all }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Branch
+        run: |
+          echo "$(git branch)"
       - name: Get changed files
         id: changes
         run: |
           echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
-      - name: Get the output time
+      - name: Changed files
         run: echo "The time was ${{ steps.changes.outputs.all }}"
       - name: Verify
         uses: tomasz-czyzak/demo-javascript-action/verify@develop
