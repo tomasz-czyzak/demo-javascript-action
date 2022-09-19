@@ -11,4 +11,4 @@ jobs:
       - name: pr_validation_step
         uses: tomasz-czyzak/demo-javascript-action@develop
         with:
-          who-to-greet: 'John Doe 11'
+          who-to-greet: 'John Doe 11 Verify'
