@@ -6,7 +6,7 @@ on:
 jobs:
   pr_validation_job:
     runs-on: ubuntu-latest
-    name: PR Validation
+    name: PR Verification
     steps:
       - name: Verify
         uses: tomasz-czyzak/demo-javascript-action/verify@develop
