@@ -1,7 +1,7 @@
 name: 'PR Verification'
 description: 'Verify PR Title and Body'
 inputs:
-    modified_files:  # id of input
+  modified_files:  # id of input
     description: 'Modfied files'
     required: true
     default: ''
