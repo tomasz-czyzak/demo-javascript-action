@@ -4,11 +4,19 @@ on:
     types: [opened, edited, ready_for_review, reopened, synchronize]
 
 jobs:
-  pr_validation_job:
+  verify_pr:
     runs-on: ubuntu-latest
-    name: PR Validation
+    outputs:
+      all: ${{ steps.changes.outputs.all }}
     steps:
-      - name: Verify
-        uses: tomasz-czyzak/demo-javascript-action/verify@develop
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Get changed files
+        id: changes
+        run: |
+          echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
+      - uses: tomasz-czyzak/demo-javascript-action/verify@develop
         with:
           who-to-greet: 'John Doe 11 Verify'
