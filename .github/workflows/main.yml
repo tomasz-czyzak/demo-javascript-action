@@ -6,9 +6,9 @@ on:
 jobs:
   changedFiles:
     runs-on: ubuntu-latest
-    outputs:
-      all: ${{ steps.changes.outputs.all}}
     - name: Changed files
+    outputs:
+      all: ${{ steps.changes.outputs.all }}
     steps:
       - uses: actions/checkout@v3
         with:
