@@ -9,6 +9,6 @@ jobs:
     name: PR Validation
     steps:
       - name: pr_validation_step
-        uses: tomasz-czyzak/demo-javascript-action@develop
+        uses: tomasz-czyzak/demo-javascript-action/verify@develop
         with:
           who-to-greet: 'John Doe 11 Verify'
