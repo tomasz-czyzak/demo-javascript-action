@@ -7,16 +7,17 @@ try {
   console.log(`Hello ${nameToGreet}!`);
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
-
+  console.log(`***********************`);
+  // Get the JSON webhook payload for the event that triggered the workflow
+  const payload = JSON.stringify(github.context.payload, undefined, 2)
+  console.log(`The event payload: ${payload}`);
+  console.log("***********************");
+    
   const prTitle = JSON.stringify(github.context.payload.pull_request.title, undefined, 2)
   const prBody = JSON.stringify(github.context.payload.pull_request.body, undefined, 2)
   console.log(`***********************`);
   console.log(`PR TITLE:${prTitle}`);
   console.log(`PR BODY:${prBody}`);
-  console.log(`***********************`);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
 } catch (error) {
   core.setFailed(error.message);
 }
