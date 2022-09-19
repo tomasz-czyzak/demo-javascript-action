@@ -4,8 +4,11 @@ on:
     types: [opened, edited, ready_for_review, reopened, synchronize]
 
 jobs:
-  Verification:
+  changedFiles:
     runs-on: ubuntu-latest
+    outputs:
+      all: ${{ steps.changes.outputs.all}}
+    - name: Changed files
     steps:
       - uses: actions/checkout@v3
         with:
@@ -14,6 +17,17 @@ jobs:
         run: |
           echo "$(git branch)"
           echo "$(git log -2 --oneline)"
+      - name: Get changed file
+        id: changes
+        run: |
+          echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
+          
+   verifyPR:
+      runs-on: ubuntu-latest
+      needs: changedFiles
+      steps:
+      - name: echo changed files
+        run: echo ${{needs.changedFiles.outputs.all }}
       - name: Verify
         uses: tomasz-czyzak/demo-javascript-action/verify@develop
         with:
