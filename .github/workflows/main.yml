@@ -6,10 +6,9 @@ on:
 jobs:
   pr_validation_job:
     runs-on: ubuntu-latest
-    name: PR Validation Job
+    name: PR Validation
     steps:
-      - name: Hello world action step
-        id: hello
+      - name: pr_validation_step
         uses: tomasz-czyzak/demo-javascript-action@develop
         with:
           who-to-greet: 'John Doe 11'
