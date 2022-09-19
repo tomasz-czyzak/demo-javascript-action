@@ -9,7 +9,7 @@ try {
   core.setOutput("time", time);
 
   const prTitle = JSON.stringify(github.context.payload.pull_request.title, undefined, 2)
-  const prBody = JSON.stringify(github.context.payload.body, undefined, 2)
+  const prBody = JSON.stringify(github.context.payload.pull_request.body, undefined, 2)
   console.log(`***********************`);
   console.log(`PR TITLE:${prTitle}`);
   console.log(`PR BODY:${prBody}`);

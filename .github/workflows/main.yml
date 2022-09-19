@@ -10,9 +10,6 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: tomasz-czyzak/demo-javascript-action@v1.0.1
+        uses: tomasz-czyzak/demo-javascript-action@develop
         with:
-          who-to-greet: 'John Doe'
-      # Use the output from the `hello` step
-      - name: Completed
-        run: echo "Completed:${{ steps.hello.outputs.time }}"
+          who-to-greet: 'John Doe 11'
