@@ -4,7 +4,8 @@ on:
     types: [opened, edited, ready_for_review, reopened, synchronize]
 
 jobs:
-  changedFiles:
+
+  changed_files:
     runs-on: ubuntu-latest
     - name: Changed files
     outputs:
