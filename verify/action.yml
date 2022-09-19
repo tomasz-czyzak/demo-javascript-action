@@ -1,10 +1,10 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'PR Verification'
+description: 'Verify PR Title and Body'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  modifed_files:  # id of input
+    description: 'Modfied files'
     required: true
-    default: 'World'
+    default: ''
 runs:
   using: 'node16'
   main: 'src/index.js'
